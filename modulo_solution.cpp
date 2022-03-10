@@ -4,7 +4,6 @@ using namespace std;
 
 int main()
 {
-
     // define conversion values in cents
     const int dollar_value{100};
     const int quarter_value{25};
@@ -21,16 +20,16 @@ int main()
     int balance{}, dollars{}, quarters{}, dimes{}, nickels{}, pennies{};
 
     dollars = change_amount / dollar_value;
-    balance = change_amount - (dollars * dollar_value);
+    balance = change_amount % dollar_value;
 
     quarters = balance / quarter_value;
-    balance -= quarters * quarter_value;
+    balance %= quarter_value;
 
     dimes = balance / dime_value;
-    balance -= dimes * dime_value;
+    balance %= dime_value;
 
     nickels = balance / nickel_value;
-    balance -= nickels * nickel_value;
+    balance %= nickel_value;
 
     pennies = balance;
 
